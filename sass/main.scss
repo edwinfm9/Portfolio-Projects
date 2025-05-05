@@ -2,7 +2,7 @@
 @import 'mixins';
 
 * {
-    margin: 0;
+    margin: 0;   
     padding: 0;
     box-sizing: none;
     font-family: $font-primary;
@@ -10,18 +10,28 @@
 
 body {
     background-color: $black-color;
-    @include respond-to(desktop) {
-        padding: 0 6em;
-    }
     background-image: url(../img/back-desing.png), url(../img/Oval.png);
     background-repeat: no-repeat no-repeat;
-    background-position: -15px 84px, 346px 216px;
+    background-position: -15px 84px, 349px 216px;
+    @include respond-to(tablet) {
+        background-size: 270px , 100px;
+        background-position: -15px 65px, 529px 0px ;
+    }
+    @include respond-to(desktop) {
+        background-size: 400px 100px , 0px;
+        background-position: -15px 160px, 40px;
+    }
 }
 
 main {
     background-image: url(../img/back-desing-2.png);
     background-repeat: no-repeat;
     background-position: 225px 515px;
+    @include respond-to(desktop) {
+        padding: 0 6em;
+        background-position: 1100px 230px;
+        background-size: 370px 120px;
+    }
 }
 
 
@@ -134,7 +144,7 @@ header {
             }
             img:last-of-type {
                 position: relative;
-                top: -447px;
+                top: -568px;
             }
         
         img.mobile{
@@ -145,7 +155,7 @@ header {
             position: relative;
             right: 183px;
             height: auto;
-            transform: translateY(-370px);
+            transform: translateY(-462px);
             gap: 60px;
     
         }
@@ -506,8 +516,12 @@ hr.mobile {
 
             article {            
                 margin-bottom: 40px;
+                position: relative;
                 img.menu{
                     width: 90%;
+                    display: block;
+                    position: relative;
+                
                 }
                 
     
@@ -532,12 +546,41 @@ hr.mobile {
                     text-underline-offset: 13px;
                     
                 }
+                a.btn:hover {
+                    color: $green-color;
+                }
                 a:nth-of-type(2) {
                     margin-left: 10px;
                 }
-                .projects-links {
+                .projects-cards {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            
+                
+                .project-links {
+                    width: 100%;
+                    height: 90%;
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                    background: rgba(0,0,0,0.6);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 30px;
+                    opacity: 0;
+                    transition: 0.6s;
                     
                 }
+
+                .project-links:hover {
+                    opacity: 1;
+                
+                }
+
             }
         }
 
@@ -576,6 +619,7 @@ section.contact {
         width: 380px;
         background-color: $black-light;
         height: 302px;
+        
     }
     label {
         display: block;
@@ -666,6 +710,7 @@ section.contact {
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-self: center;
+        padding: 0 0;
         h2 {
             color: $white-color;
             font-size: 72px;
@@ -673,6 +718,7 @@ section.contact {
             background-color: $black-light;
             margin-top: -105px;
             margin-bottom: 20px;
+            text-align: start;
         
         }
         p {
@@ -683,6 +729,9 @@ section.contact {
             font-size: 18px;
             line-height: 28px;
         } 
+        .contacto {
+            margin-left: 20%;
+        }
         .formulario {
             width: 442px;
         }    
@@ -730,17 +779,22 @@ hr:last-of-type {
     margin-top: 85px;
     margin-bottom: 77px;
     color: $gray-color;
+    margin-left: 45px;
+    margin-right: 45px;
 }
 footer {
     padding-top:30px ;
     background-color: $black-light;
+
+
+
     @include respond-to (tablet) {
         height: 200px;
     }
     img.mobile{
         display: block;
         background-color: $black-light;
-        margin-left: 112px;
+        margin-left: 128px;
         padding: 30px 0;
         @include respond-to(tablet) {
             display: none
@@ -774,11 +828,11 @@ footer {
 
     @include respond-to (desktop) {
         #logo {
-            margin-left: 30px;
+            margin-left: 50px;
         }
 
         #redes {
-            margin-left: 800px;
+            margin-left: auto;
             transform: translateY(-30px);
         }
     }
